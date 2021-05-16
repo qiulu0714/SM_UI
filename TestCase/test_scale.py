@@ -1,0 +1,70 @@
+#! /usr/bin/env python
+# -*- coding: utf-8 -*-
+from time import sleep
+import pytest
+from selenium.webdriver.support import expected_conditions as EC
+
+
+class Test_scale():
+
+    @pytest.mark.assess
+    def test_assess(self,base):
+        base.click("点击患者管理",'''//div[text()="患者管理"]''')
+        sleep(2)
+        base.click("点击赵俊",'''//span[text()="超级小兵"]''')
+        sleep(2)
+        base.click("点击评估量表",'''//li[text()="评估量表"]''')
+        sleep(2)
+        lb_lb = base.select_by_visible_text('''//tr[@class="ant-table-row ant-table-row-level-0"]''')
+        for i in enumerate(lb_lb):
+            title = base("""//tr[@class="ant-table-row ant-table-row-level-0"]/child::td/div/span""")
+            title = EC.title_is(u'评估')
+            base.click('''//div/span[text()='评估']''')
+            sleep(2)
+            base.click("//button/span[text()='取 消']")
+            sleep(2)
+        # base.click("点击查看",'''//div/span[text()='评估']''')
+        # sleep(2)
+        # # 评估"自评抑郁量表(SDS)"
+        # base.click("随机选择","//div[3]/div/div/div/div/div[2]/div/div[2]/div/div/label[1]")
+        # sleep(1)
+        # base.click("随机选择", "//div[3]/div/div/div/div/div[2]/div/div[3]/div/div/label[2]")
+        # sleep(1)
+        # base.click("随机选择","//div[3]/div/div/div/div/div[2]/div/div[4]/div/div/label[3]")
+        # sleep(1)
+        # base.click("随机选择","//div[3]/div/div/div/div/div[2]/div/div[5]/div/div/label[4]")
+        # sleep(1)
+        # base.click("随机选择","//div[3]/div/div/div/div/div[2]/div/div[6]/div/div/label[4]")
+        # sleep(1)
+        # base.click("随机选择","//div[3]/div/div/div/div/div[2]/div/div[7]/div/div/label[3]")
+        # sleep(1)
+        # base.click("随机选择","//div[3]/div/div/div/div/div[2]/div/div[8]/div/div/label[2]")
+        # sleep(1)
+        # base.click("随机选择", "//div[3]/div/div/div/div/div[2]/div/div[9]/div/div/label[1]")
+        # sleep(1)
+        # base.click("随机选择", "//div[3]/div/div/div/div/div[2]/div/div[10]/div/div/label[2]")
+        # sleep(1)
+        # base.click("随机选择", "//div[3]/div/div/div/div/div[2]/div/div[11]/div/div/label[3]")
+        # sleep(1)
+        # base.click("随机选择", "//div[3]/div/div/div/div/div[2]/div/div[12]/div/div/label[4]")
+        # sleep(1)
+        # base.click("随机选择","//div[3]/div/div/div/div/div[2]/div/div[13]/div/div/label[1]")
+        # sleep(1)
+        # base.click("随机选择", "//div[3]/div/div/div/div/div[2]/div/div[14]/div/div/label[2]")
+        # sleep(1)
+        # base.click("随机选择","//div[3]/div/div/div/div/div[2]/div/div[15]/div/div/label[3]")
+        # sleep(1)
+        # base.click("随机选择","//div[3]/div/div/div/div/div[2]/div/div[16]/div/div/label[4]")
+        # sleep(1)
+        # base.click("随机选择","//div[3]/div/div/div/div/div[2]/div/div[17]/div/div/label[1]")
+        # sleep(1)
+        # base.click("随机选择", "//div[3]/div/div/div/div/div[2]/div/div[18]/div/div/label[2]")
+        # sleep(1)
+        # base.click("随机选择","//div[3]/div/div/div/div/div[2]/div/div[19]/div/div/label[3]")
+        # sleep(1)
+        # base.click("随机选择","//div[3]/div/div/div/div/div[2]/div/div[20]/div/div/label[4]")
+        # sleep(1)
+        # base.click("随机选择","//div[3]/div/div/div/div/div[2]/div/div[21]/div/div/label[1]")
+        # sleep(1)
+        # base.click('点击确定',"//button/span[text()='确 定']")
+        # sleep(2)
