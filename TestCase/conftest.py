@@ -23,7 +23,7 @@ def base():
     # 打开登录页面
     dr.get("https://n-web.sersmed.cn/#/login")
     # 输入用户名
-    base.send_keys("输入手机号", '''//input[@placeholder="手机号"]''', '15213292472')
+    base.send_keys("输入手机号", '''//input[@placeholder="手机号"]''', '15213292473')
     # 输入密码
     base.send_keys("输入密码", '''//input[@placeholder="验证码"]''', '3788')
     # 点击登录

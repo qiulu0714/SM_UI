@@ -51,6 +51,19 @@ class baseUI():
                 i=i+1
         return d
 
+    def local_elements(self,xpaths):
+        i = 1
+        d=None
+        while(i<=3):
+            try:
+                d=WebDriverWait(self.driver, 5, 0.5).until(EC.presence_of_all_elements_located((By.XPATH, xpaths)))
+                break
+            except:
+                if i == 3:
+                    raise
+                i=i+1
+        return d
+
     @shot
     def send_keys(self,step,xpath,text):
         '''
