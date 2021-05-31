@@ -1,17 +1,21 @@
 import random
 from time import sleep
-import pytest
 import os
-from selenium.webdriver.support import expected_conditions as EC
 from selenium import webdriver
 driver_path = os.path.join(os.path.dirname(__file__), "../chromedriver/chromedriver.exe")
 dr = webdriver.Chrome(driver_path)
 dr.maximize_window()  # 最大化浏览器
 dr.implicitly_wait(8)  # 设置隐式时间等待
-from Common.Mysql import connect_db
+import pymysql
 
 def test_assess():
-    connect_db()
+    db = pymysql.Connect(host="47.101.43.146", user="test", password="senmei654123", db="dnp_db",
+                         port=64316)
+    cursor = db.cursor()
+    # /*修改登录医生和护士的手机号*/
+    a = cursor.execute("UPDATE dnp_db.mobile_code SET mobile='15213292473',status=1 WHERE code = '3788'")
+    # 提交数据库进行执行
+    db.commit()
     dr.get("https://n-web.sersmed.cn/#/login")
     # 输入用户名
     dr.find_element_by_xpath('''//input[@placeholder="手机号"]''').send_keys('15213292473')
